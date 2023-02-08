@@ -1,0 +1,126 @@
+﻿  Compiling CUDA source file kernel.cu...
+  
+  C:\Users\Admin\source\repos\CudaRuntime1\CudaRuntime1>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\bin\nvcc.exe" -gencode=arch=compute_52,code=\"sm_52,compute_52\" --use-local-env -ccbin "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\HostX86\x64" -x cu   -I"C:\Users\Admin\Downloads\SFML-2.5.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.6\include"  -G   --keep-dir x64\Debug  -maxrregcount=0  --machine 64 --compile -cudart static  -g  -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /Fdx64\Debug\vc142.pdb /FS /Zi /RTC1 /MDd " -o x64\Debug\kernel.cu.obj "C:\Users\Admin\source\repos\CudaRuntime1\CudaRuntime1\kernel.cu" 
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/System/String.hpp(527): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Window/Window.hpp(549): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Transformable.hpp(319): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Transformable.hpp(320): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Transformable.hpp(322): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Vertex.hpp(97): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Vertex.hpp(99): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/VertexArray.hpp(190): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Shape.hpp(309): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Shape.hpp(315): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Shape.hpp(316): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/ConvexShape.hpp(115): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Glyph.hpp(55): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Glyph.hpp(56): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Image.hpp(266): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Image.hpp(267): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Texture.hpp(619): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Texture.hpp(620): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Font.hpp(354): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Font.hpp(355): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Font.hpp(356): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/RectangleShape.hpp(102): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/View.hpp(272): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/View.hpp(273): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/View.hpp(275): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/RenderTarget.hpp(476): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Shader.hpp(750): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Shader.hpp(751): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Sprite.hpp(220): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Text.hpp(449): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/System/String.hpp(527): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Window/Window.hpp(549): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Transformable.hpp(319): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Transformable.hpp(320): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Transformable.hpp(322): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Vertex.hpp(97): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Vertex.hpp(99): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/VertexArray.hpp(190): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Shape.hpp(309): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Shape.hpp(315): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Shape.hpp(316): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/ConvexShape.hpp(115): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Glyph.hpp(55): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Glyph.hpp(56): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Image.hpp(266): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Image.hpp(267): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Texture.hpp(619): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Texture.hpp(620): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Font.hpp(354): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Font.hpp(355): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Font.hpp(356): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/RectangleShape.hpp(102): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/View.hpp(272): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/View.hpp(273): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/View.hpp(275): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/RenderTarget.hpp(476): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Shader.hpp(750): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Shader.hpp(751): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Sprite.hpp(220): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+C:\Users\Admin\Downloads\SFML-2.5.1\include\SFML/Graphics/Text.hpp(449): warning #1394-D: field of class type without a DLL interface used in a class with a DLL interface
+  
+  kernel.cu
+     Creating library C:\Users\Admin\source\repos\CudaRuntime1\x64\Debug\CudaRuntime1.lib and object C:\Users\Admin\source\repos\CudaRuntime1\x64\Debug\CudaRuntime1.exp
+  CudaRuntime1.vcxproj -> C:\Users\Admin\source\repos\CudaRuntime1\x64\Debug\CudaRuntime1.exe

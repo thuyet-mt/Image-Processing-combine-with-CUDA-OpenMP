@@ -1,0 +1,6 @@
+﻿  Generating code
+  102 of 273 functions (37.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    15 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  ImageProcessor-OpenMP.vcxproj -> C:\Users\Admin\Desktop\maith\image-processor-master - Copy\Release\ImageProcessor-OpenMP.exe
