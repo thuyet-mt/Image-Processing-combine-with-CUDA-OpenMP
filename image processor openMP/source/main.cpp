@@ -7,7 +7,7 @@
 #include <omp.h>
 #include "FiltersProvider.hpp"
 
-const std::string IMAGE_NAME = "guitar";
+const std::string IMAGE_NAME = "test2";
 const std::string INPUT_IMAGE_NAME = IMAGE_NAME + ".jpg";
 const std::string OUTPUT_IMAGE_NAME = IMAGE_NAME + "_out.jpg";
 
@@ -79,11 +79,39 @@ void applyFilter(sf::Image& image, const Filter::Kernel& filter)
 
 int main()
 {
-    omp_set_num_threads(12);
+    omp_set_num_threads(omp_get_max_threads());
     auto image = loadImage();
-    const auto filter = Filter::blurKernel();
-    const auto duration = runWithTimeMeasurementCpu(applyFilter, image, filter);
-    std::cout << "Duration [ms]: " << duration << std::endl;
-    saveImage(image);
+
+    // Apply each of the 5 filters and save the output image
+    auto edgeDetectionFilter = Filter::edgeDetectionKernel();
+    auto edgeDetectionImage = image;
+    const auto edgeDetectionDuration = runWithTimeMeasurementCpu(applyFilter, edgeDetectionImage, edgeDetectionFilter);
+    std::cout << "Duration for Edge Detection OMP [ms]: " << edgeDetectionDuration << std::endl;
+    edgeDetectionImage.saveToFile("../images/" + IMAGE_NAME + "_edge_detection_omp.jpg");
+
+    auto blurFilter = Filter::blurKernel();
+    auto blurImage = image;
+    const auto blurDuration = runWithTimeMeasurementCpu(applyFilter, blurImage, blurFilter);
+    std::cout << "Duration for Blur OMP [ms]: " << blurDuration << std::endl;
+    blurImage.saveToFile("../images/" + IMAGE_NAME + "_blur_omp.jpg");
+
+    auto sharpenFilter = Filter::sharpenKernel();
+    auto sharpenImage = image;
+    const auto sharpenDuration = runWithTimeMeasurementCpu(applyFilter, sharpenImage, sharpenFilter);
+    std::cout << "Duration for Sharpen OMP [ms]: " << sharpenDuration << std::endl;
+    sharpenImage.saveToFile("../images/" + IMAGE_NAME + "_sharpen_omp.jpg");
+
+    auto embossFilter = Filter::embossKernel();
+    auto embossImage = image;
+    const auto embossDuration = runWithTimeMeasurementCpu(applyFilter, embossImage, embossFilter);
+    std::cout << "Duration for Emboss OMP [ms]: " << embossDuration << std::endl;
+    embossImage.saveToFile("../images/" + IMAGE_NAME + "_emboss_omp.jpg");
+
+    auto outlineFilter = Filter::outlineKernel();
+    auto outlineImage = image;
+    const auto boxBlurDuration = runWithTimeMeasurementCpu(applyFilter, outlineImage, outlineFilter);
+    std::cout << "Duration for Outline OMP [ms]: " << boxBlurDuration << std::endl;
+    outlineImage.saveToFile("../images/" + IMAGE_NAME + "_outline_omp.jpg");
+
     return EXIT_SUCCESS;
 }
