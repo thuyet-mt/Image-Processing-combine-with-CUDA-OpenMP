@@ -4,12 +4,15 @@
 #include <cmath>
 #include <cassert>
 #include <SFML/Graphics/Image.hpp>
-#include <omp.h>
 #include "FiltersProvider.hpp"
 
 const std::string IMAGE_NAME = "test2";
 const std::string INPUT_IMAGE_NAME = IMAGE_NAME + ".jpg";
 const std::string OUTPUT_IMAGE_NAME = IMAGE_NAME + "_out.jpg";
+const std::string OUTPUT_IMAGE_NAME_EDGE_DETECT = IMAGE_NAME + "_edgeDetect.jpg";
+std::vector<std::string> filterNames = { "Blur", "Sharpen", "EdgeDetection", "Emboss", "Outline" };
+using KernelRow = std::vector<float>;
+using Kernel = std::vector<KernelRow>;
 
 template <typename Callable, typename... Args>
 auto runWithTimeMeasurementCpu(Callable&& function, Args&&... params)
@@ -27,6 +30,10 @@ auto loadImage()
     image.loadFromFile("../images/" + INPUT_IMAGE_NAME);
     return image;
 }
+void saveImgEdgeDetect(sf::Image& image)
+{
+    image.saveToFile("../images/" + OUTPUT_IMAGE_NAME_EDGE_DETECT);
+}
 
 void saveImage(sf::Image& image)
 {
@@ -39,7 +46,7 @@ void alignChannel(int& channelValue)
     channelValue = (channelValue < 0) ? 0 : channelValue;
 }
 
-void applyFilter(sf::Image& image, const Filter::Kernel& filter)
+void applyFilter(sf::Image& image, const Kernel& filter)
 {
     const auto kernelSize = static_cast<int>(filter.size());
     const auto kernelMargin = kernelSize / 2;
@@ -47,12 +54,9 @@ void applyFilter(sf::Image& image, const Filter::Kernel& filter)
     const auto imageWidth = static_cast<int>(image.getSize().x);
     auto outputImage = image;
 
-    int x, y;
-
-    #pragma omp parallel for private(x, y) schedule(dynamic)
-    for (y = kernelMargin; y < imageHeight - kernelMargin; ++y)
+    for (int y = kernelMargin; y < imageHeight - kernelMargin; ++y)
     {
-        for (x = kernelMargin; x < imageWidth - kernelMargin; ++x)
+        for (int x = kernelMargin; x < imageWidth - kernelMargin; ++x)
         {
             int newRedChannel{}, newGreenChannel{}, newBlueChannel{};
             for (int kernelX = -kernelMargin; kernelX <= kernelMargin; ++kernelX)
@@ -79,39 +83,39 @@ void applyFilter(sf::Image& image, const Filter::Kernel& filter)
 
 int main()
 {
-    omp_set_num_threads(omp_get_max_threads());
     auto image = loadImage();
 
     // Apply each of the 5 filters and save the output image
     auto edgeDetectionFilter = Filter::edgeDetectionKernel();
     auto edgeDetectionImage = image;
     const auto edgeDetectionDuration = runWithTimeMeasurementCpu(applyFilter, edgeDetectionImage, edgeDetectionFilter);
-    std::cout << "Duration for Edge Detection OMP [ms]: " << edgeDetectionDuration << std::endl;
-    edgeDetectionImage.saveToFile("../images/" + IMAGE_NAME + "_edge_detection_omp.jpg");
+    std::cout << "Duration for Edge Detection [ms]: " << edgeDetectionDuration << std::endl;
+    edgeDetectionImage.saveToFile("../images/" + IMAGE_NAME + "_edge_detection.jpg");
 
     auto blurFilter = Filter::blurKernel();
     auto blurImage = image;
     const auto blurDuration = runWithTimeMeasurementCpu(applyFilter, blurImage, blurFilter);
-    std::cout << "Duration for Blur OMP [ms]: " << blurDuration << std::endl;
-    blurImage.saveToFile("../images/" + IMAGE_NAME + "_blur_omp.jpg");
+    std::cout << "Duration for Blur [ms]: " << blurDuration << std::endl;
+    blurImage.saveToFile("../images/" + IMAGE_NAME + "_blur.jpg");
 
     auto sharpenFilter = Filter::sharpenKernel();
     auto sharpenImage = image;
     const auto sharpenDuration = runWithTimeMeasurementCpu(applyFilter, sharpenImage, sharpenFilter);
-    std::cout << "Duration for Sharpen OMP [ms]: " << sharpenDuration << std::endl;
-    sharpenImage.saveToFile("../images/" + IMAGE_NAME + "_sharpen_omp.jpg");
+    std::cout << "Duration for Sharpen [ms]: " << sharpenDuration << std::endl;
+    sharpenImage.saveToFile("../images/" + IMAGE_NAME + "_sharpen.jpg");
 
     auto embossFilter = Filter::embossKernel();
     auto embossImage = image;
     const auto embossDuration = runWithTimeMeasurementCpu(applyFilter, embossImage, embossFilter);
-    std::cout << "Duration for Emboss OMP [ms]: " << embossDuration << std::endl;
-    embossImage.saveToFile("../images/" + IMAGE_NAME + "_emboss_omp.jpg");
+    std::cout << "Duration for Emboss [ms]: " << embossDuration << std::endl;
+    embossImage.saveToFile("../images/" + IMAGE_NAME + "_emboss.jpg");
 
     auto outlineFilter = Filter::outlineKernel();
     auto outlineImage = image;
     const auto boxBlurDuration = runWithTimeMeasurementCpu(applyFilter, outlineImage, outlineFilter);
-    std::cout << "Duration for Outline OMP [ms]: " << boxBlurDuration << std::endl;
-    outlineImage.saveToFile("../images/" + IMAGE_NAME + "_outline_omp.jpg");
+    std::cout << "Duration for Outline [ms]: " << boxBlurDuration << std::endl;
+    outlineImage.saveToFile("../images/" + IMAGE_NAME + "_outline.jpg");
 
     return EXIT_SUCCESS;
 }
+
