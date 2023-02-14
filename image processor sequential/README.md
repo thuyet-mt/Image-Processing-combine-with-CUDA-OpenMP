@@ -1,7 +1,6 @@
 # Image-Processor 
 
 The project contains sequential and different parallel implementations of **image processing** algorithm.<br />
-The project was created for the needs of master's thesis of Computer Science studies.<br/>
 The aim of the project was to compare performance of sequential and parallel implementations, depending on threads and processes number used for computing, with the use of different approaches and technologies.
 
 ## Functionality 
@@ -21,7 +20,6 @@ The result may be poorly visibly on high resolution images as the project was cr
 
 * C++
 * [OpenMP](https://en.wikipedia.org/wiki/OpenMP)
-* [OpenMPI](https://en.wikipedia.org/wiki/Open_MPI)
 * [CUDA](https://en.wikipedia.org/wiki/CUDA)
     * [Thrust](https://github.com/NVIDIA/thrust)
 
@@ -38,15 +36,8 @@ The project contains a few **image processing** implementations:
 ### Dependencies
 * Visual Studio
 * OpenMP support enabled in Visual Studio (for ImageProcessor-OpenMP project)
-* OpenMPI implementation installed e.g. Microsoft MPI
 * CUDA installed (+ CUDA capable graphic card)
 * Thrust
-
-### Repository
-
-```sh
-$ git clone https://github.com/marmal95/image-processor.git
-```
 
 ### Build
 
@@ -75,16 +66,6 @@ Preferred number of threads in OpenMP implementation used for computing may be c
 omp_set_num_threads(NUM_THREADS)
 ```
 which is called at the beginning of **main()** function.
-
-
-### OpenMPI
-
-Preferred number of processes is passed as parameter to **mpiexec** command.<br>
-The value may be changed in **Visual Studio** in: **Project > Properties > Configuration Properties > Debugging**.<br>
-```
-Command             mpiexec.exe
-Command Arguments   -n 4 "$(TargetPath)"
-```
 
 
 ### CUDA
